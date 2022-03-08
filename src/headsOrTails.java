@@ -5,23 +5,32 @@ public class headsOrTails {
 
 	public static void main(String[] args) {
 		boolean userInputHeads = false;
-
-		// ask user for heads or tails, lowercase and trim to use more easily
-		System.out.print("Guess which will have more: heads or tails? ");
+		boolean valid = false;
 		Scanner scan = new Scanner(System.in);
-		String headsOrTailsGuess = scan.next().toLowerCase().trim();
+		String headsOrTailsGuess;
+		 System.out.println("Welcome to the Heads or Tails program by Bolanle Aduroja." +"\n");
+	
+		do {
+			// ask user for heads or tails, lowercase and trim to use more easily
+			System.out.print("Guess which will have more: heads or tails? ");
+			headsOrTailsGuess = scan.next().toLowerCase().trim();
 
-		// check that user input valid heads or tails
-		if (headsOrTailsGuess.equals("heads") || headsOrTailsGuess.equals("head")) {
-			userInputHeads = true;
-		} else if (headsOrTailsGuess.equals("tails") || headsOrTailsGuess.equals("tail")) {
-			userInputHeads = false;
-		} else {
-			System.out.println("");
-			System.out.println("ERROR. Only 'heads' or 'tails should be entered");
-			scan.close();
-			return;
-		}
+			// check that user input valid heads or tails
+
+			if (headsOrTailsGuess.equals("heads") || headsOrTailsGuess.equals("head")) {
+				userInputHeads = true;
+				valid = true;
+			} else if (headsOrTailsGuess.equals("tails") || headsOrTailsGuess.equals("tail")) {
+				userInputHeads = false;
+				valid = true;
+
+			} else {
+				System.out.println("");
+				System.out.print("ERROR. Only 'heads' or 'tails' should be entered. Please try again. ");
+				valid = false;
+			}
+			// INSTEAD OF RETURN I WANT TO LOOP TO KEEP ASKING UNTIL IT'S HEADS OR TAILS
+		} while (valid == false);
 		// ask for number of flips
 		System.out.print("How many times shall we flip a coin? ");
 		int numberOfFlips = scan.nextInt();
