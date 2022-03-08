@@ -46,8 +46,9 @@ public class headsOrTails {
 			}
 			if (userInputHeads && randomFlip == 0) {
 				correctCount = correctCount + 1;
-			} else if (userInputHeads == false && randomFlip == 1)
+			} else if (userInputHeads == false && randomFlip == 1) {
 				correctCount = correctCount + 1;
+			}
 		}
 		// calculate percentage and print final statement
 
